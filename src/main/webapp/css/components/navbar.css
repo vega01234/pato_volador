@@ -5,10 +5,15 @@
     cursor: pointer;
 }
 
-/* User Icon Style */
-.user_icon {
-    font-size: 60px;
-    color: #edf0f1;
+/* FelxBox Style */
+.logo {
+    flex: 1;
+    text-align: left;
+}
+
+.navbar nav {
+    flex: 2;
+    text-align: center;
 }
 
 /* Navbar Style */

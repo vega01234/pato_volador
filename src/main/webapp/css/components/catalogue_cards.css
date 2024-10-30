@@ -1,5 +1,5 @@
-/* Card Container Style */
-.card_container {
+/* Catalogue Card Style */
+.catalogue_cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -7,9 +7,9 @@
     gap: 30px;
 }
 
-/* Card Style */
-.vertical_card {
-    flex: 1 1 calc(33.33% - 10px);
+/* Catalogue Card Style */
+.catalogue_card {
+    flex: 1 1 calc(33.33% -10px);
     max-width: 270px;
     background-color: white;
     border-radius: 10px;
@@ -17,34 +17,35 @@
     overflow: hidden;
 }
 
-.vertical_card img {
+.catalogue_card img {
     width: 270px;
-    height: 200px;
+    padding: 10px;
+    background-color: #e4dfdf;
 }
 
-.vertical_card_content {
+.catalogue_card_content {
     padding: 20px;
 }
 
-.vertical_card_content h2 {
+.catalogue_card_content h2 {
     margin: 0;
     font-size: 1.5em;
-    text-align: center;
+    text-align: justify;
     color: #333;
 }
 
-.vertical_card_content p {
+.catalogue_card_content p {
     color: #666;
     margin: 10px 0;
 }
 
-.vertical_card_button {
+.catalogue_card_button {
     display: flex;
     justify-content: center;
     padding-bottom: 20px;
 }
 
-.vertical_card_button a {
+.catalogue_card_button a {
     text-decoration: none;
     background-color: #007bff;
     color: white;
@@ -53,6 +54,6 @@
     transition: background-color 0.3s;
 }
 
-.vertical_card_button a:hover {
+.catalogue_card_button a:hover {
     background-color: #0056b3;
 }

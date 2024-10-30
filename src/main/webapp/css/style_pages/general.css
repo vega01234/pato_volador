@@ -12,3 +12,9 @@ body {
     background-color: #24252A;
     font-family: "Montserrat", sans-serif;
 }
+
+.subtitle_page {
+    color: white;
+    text-align: center;
+    padding-bottom: 20px;
+}

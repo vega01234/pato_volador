@@ -25,16 +25,23 @@
                     <li><a href="../sales/index.html" class="link_ref">Ventas</a></li>
                 </ul>
             </nav>
-            <div>
-                <i class="uil uil-user-circle user_icon"></i>
-            </div>
         </header>
         <!-- Main Content -->
-        <div class="card_container" id="card_container"></div>
+        <main class="content_page">
+            <h2 class="subtitle_page">Clientes - El Pato Volador</h2>
+            <div class="card_container" id="card_container"></div>
+        </main>
         <!-- Footer Page -->
         <footer>
             <p>El Pato Volador S.A. de C.V. - Mar de Java CECyT No. 9 Juan de Dios Batiz</p>
         </footer>
+        <!-- Source Scripts -->
+        <script src="../../scripts/utils/cardData.js"></script>
+        <script src="../../scripts/renderCards.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                renderLinkCards(customerCards, "card_container");
+            })
+        </script>
     </body>
-    <script src="../../scripts/customer/vertical_cards.js"></script>
 </html>
