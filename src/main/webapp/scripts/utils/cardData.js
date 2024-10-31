@@ -9,7 +9,7 @@ const customerCards = [
     {
         imgSrc: "https://images.unsplash.com/photo-1600469984476-c713650f1b1b?q=80&w=2070&auto=format&fit=crop",
         title: "Modificar Cliente",
-        linkHref: "./search_customer_form.html",
+        linkHref: "./modify_customer_form.html",
         linkText: "Actualizar"
     },
     {
@@ -25,13 +25,13 @@ const salesCards = [
     {
         imgSrc: "https://images.unsplash.com/photo-1556740772-1a741367b93e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         title: "Registrar Venta",
-        linkHref: "#",
+        linkHref: "./register_sale.html",
         linkText: "Registrar"
     },
     {
         imgSrc: "https://images.unsplash.com/photo-1593437955835-fc8c51725430?q=80&w=1970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         title: "Buscar Venta",
-        linkHref: "#",
+        linkHref: "./search_sale_form.html",
         linkText: "Consultar"
     }
 ];

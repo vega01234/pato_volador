@@ -6,7 +6,9 @@ function renderLinkCards(cards, containerID) {
         const cardElement = document.createElement("div");
         cardElement.className = "vertical_card";
         cardElement.innerHTML = `
-            <img src="${card.imgSrc}" alt="ImageCard">
+            <div class="vertical_card_image">
+                <img src="${card.imgSrc}" alt="ImageCard">
+            </div>
             <div class="vertical_card_content">
                 <h2>${card.title}</h2>
             </div>
@@ -21,6 +23,7 @@ function renderLinkCards(cards, containerID) {
 function renderCatalogueCards(cards, containerID) {
     const container = document.getElementById(containerID);
     container.innerHTML = ""; // Clear Content Container
+
     cards.forEach(card => {
         const cardElement = document.createElement("div");
         cardElement.className = "catalogue_card";

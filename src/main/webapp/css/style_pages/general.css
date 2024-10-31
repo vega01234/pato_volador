@@ -13,8 +13,20 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 
-.subtitle_page {
+.title_page, .subtitle_page{
+    color: #0074e4;
+    padding-bottom: 15px;
+}
+
+.text {
     color: white;
+}
+
+.center_text {
     text-align: center;
-    padding-bottom: 20px;
+}
+
+.article_general {
+    margin: 2% 15%;
+    text-align: justify;
 }
