@@ -1,0 +1,44 @@
+/* Logo Style */
+.logo {
+    height: 130px;
+    width: 130px;
+    cursor: pointer;
+}
+
+/* FelxBox Style */
+.logo {
+    flex: 1;
+    text-align: left;
+}
+
+.navbar nav {
+    flex: 2;
+    text-align: center;
+}
+
+/* Navbar Style */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+}
+
+.nav_list {
+    list-style: none;
+}
+
+.nav_list li {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.link_ref {
+    color: #edf0f1;
+    transition: all 0.3s ease 0s;
+}
+
+.link_ref:hover {
+    color: #0074e4;
+}
+

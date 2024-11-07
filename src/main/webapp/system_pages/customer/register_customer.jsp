@@ -1,7 +1,8 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Registrar Ventas</title>
+        <title>Registrar Nuevo Cliente</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- CSS Styles -->
         <link rel="stylesheet" href="../../css/style_pages/general.css">
@@ -15,14 +16,14 @@
         <!-- NavBar -->
         <header class="navbar">
             <div>
-                <a href="../../index.html"><img src="../../img/logo.webp" alt="logo" class="logo"></a>
+                <a href="../../index.jsp"><img src="../../img/logo.webp" alt="logo" class="logo"></a>
             </div>
             <nav>
                 <ul class="nav_list">
-                    <li><a href="../company_info/about_us.html" class="link_ref">Sobre Nosotros</a></li>
-                    <li><a href="../company_info/catalogue.html" class="link_ref">Catalogo</a></li>
-                    <li><a href="../customer/index.html" class="link_ref">Clientes</a></li>
-                    <li><a href="./index.html" class="link_ref">Ventas</a></li>
+                    <li><a href="../company_info/about_us.jsp" class="link_ref">Sobre Nosotros</a></li>
+                    <li><a href="../company_info/catalogue.jsp" class="link_ref">Catalogo</a></li>
+                    <li><a href="../customer/index.jsp" class="link_ref">Clientes</a></li>
+                    <li><a href="../sales/index.jsp" class="link_ref">Ventas</a></li>
                 </ul>
             </nav>
         </header>
@@ -31,16 +32,23 @@
             <div class="div_form">
                 <!-- Header Form -->
                 <div class="header_forms">
-                    <h2 class="subtitle_page center_text">Registrar Venta</h2>
+                    <h2 class="subtitle_page center_text">Registrar Nuevo Cliente</h2>
                     <p>Completa el Formulario Correctamente.</p>
                 </div>
                 <!-- Form Search -->
                 <form action="" method="post" class="form_style">
-                    <!-- No. de Venta -->
+                    <!-- Full Name -->
                     <div class="form_group">
-                        <label for="no_sale" class="form_label">Venta No.</label>
+                        <label for="full_name" class="form_label">Nombre Completo</label>
                         <div class="form_div_input">
-                            <input type="text" name="no_sale" id="no_sale" class="form_input">
+                            <input type="text" name="full_name" id="full_name" class="form_input">
+                        </div>
+                    </div>
+                    <!-- CURP Customer -->
+                    <div class="form_group">
+                        <label for="curp" class="form_label">CURP</label>
+                        <div class="form_div_input">
+                            <input type="text" name="curp" id="curp" class="form_input">
                         </div>
                     </div>
                     <!-- RFC Customer -->
@@ -50,67 +58,46 @@
                             <input type="text" name="rfc" id="rfc" class="form_input">
                         </div>
                     </div>
-                    <!-- ID Product -->
+                    <!-- Birth Date -->
                     <div class="form_group">
-                        <label for="id_product" class="form_label">ID del Producto</label>
+                        <label for="birth_date" class="form_label">Fecha de Nacimiento</label>
                         <div class="form_div_input">
-                            <input type="text" name="id_product" id="id_product" class="form_input">
+                            <input type="text" name="birth_date" id="birth_date" class="form_input">
                         </div>
                     </div>
-                    <!-- Description -->
+                    <!-- Nacionality -->
                     <div class="form_group">
-                        <label for="description" class="form_label">Descripcion</label>
+                        <label for="nacionality" class="form_label">Nacionalidad</label>
                         <div class="form_div_input">
-                            <input type="text" name="description" id="description" class="form_input">
+                            <input type="text" name="nacionality" id="nacionality" class="form_input">
                         </div>
                     </div>
-                    <!-- Units -->
+                    <!-- Adress -->
                     <div class="form_group">
-                        <label for="units" class="form_label">Unidades</label>
+                        <label for="adress" class="form_label">Domicilio</label>
                         <div class="form_div_input">
-                            <input type="text" name="units" id="units" class="form_input">
+                            <input type="text" name="adress" id="adress" class="form_input">
                         </div>
                     </div>
-                    <!-- Unit Price -->
+                    <!-- Civil State -->
                     <div class="form_group">
-                        <label for="unit_price" class="form_label">Precio Unitario</label>
+                        <label for="civil_state" class="form_label">Estado Civil</label>
                         <div class="form_div_input">
-                            <input type="text" name="unit_price" id="unit_price" class="form_input">
+                            <input type="text" name="civil_state" id="civil_state" class="form_input">
                         </div>
                     </div>
-                    <!-- Import Sale -->
+                    <!-- Ocupation -->
                     <div class="form_group">
-                        <label for="import_product" class="form_label">Importe</label>
+                        <label for="ocupation" class="form_label">Ocupacion</label>
                         <div class="form_div_input">
-                            <input type="text" name="import_product" id="import_product" class="form_input">
+                            <input type="text" name="ocupation" id="ocupation" class="form_input">
                         </div>
                     </div>
-                    <!-- IVA Product -->
+                    <!-- Study Degree -->
                     <div class="form_group">
-                        <label for="iva_product" class="form_label">IVA (Producto)</label>
+                        <label for="study_degree" class="form_label">Grado de Estudios</label>
                         <div class="form_div_input">
-                            <input type="text" name="iva_product" id="iva_product" class="form_input">
-                        </div>
-                    </div>
-                    <!-- Subtotal -->
-                    <div class="form_group">
-                        <label for="subtotal" class="form_label">Subtotal</label>
-                        <div class="form_div_input">
-                            <input type="text" name="subtotal" id="subtotal" class="form_input">
-                        </div>
-                    </div>
-                    <!-- IVA Total -->
-                    <div class="form_group">
-                        <label for="iva_total" class="form_label">IVA (Total)</label>
-                        <div class="form_div_input">
-                            <input type="text" name="iva_total" id="iva_total" class="form_input">
-                        </div>
-                    </div>
-                    <!-- Total -->
-                    <div class="form_group">
-                        <label for="total" class="form_label">Total</label>
-                        <div class="form_div_input">
-                            <input type="text" name="total" id="total" class="form_input">
+                            <input type="text" name="study_degree" id="study_degree" class="form_input">
                         </div>
                     </div>
                     <!-- Digital Sign -->

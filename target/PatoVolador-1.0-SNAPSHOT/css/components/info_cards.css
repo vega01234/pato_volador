@@ -1,0 +1,37 @@
+/* Container Info Card Style  */
+.info_cards {
+    display: flex;
+    justify-content: center;
+}
+
+/* Info Card Style */
+.info_card {
+    display: flex;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 600px;
+}
+
+.info_card img {
+    width: 200px;
+    height: auto;
+}
+
+.info_card_content {
+    padding: 20px;
+    flex: 1;
+}
+
+.info_card_content h2 {
+    font-size: 20px;
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.info_card_content p {
+    font-size: 14px;
+    color: #666;
+    margin: 0 0 20px;
+}

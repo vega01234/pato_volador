@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,14 +16,14 @@
         <!-- NavBar -->
         <header class="navbar">
             <div>
-                <a href="../../index.html"><img src="../../img/logo.webp" alt="logo" class="logo"></a>
+                <a href="../../index.jsp"><img src="../../img/logo.webp" alt="logo" class="logo"></a>
             </div>
             <nav>
                 <ul class="nav_list">
-                    <li><a href="../company_info/about_us.html" class="link_ref">Sobre Nosotros</a></li>
-                    <li><a href="../company_info/catalogue.html" class="link_ref">Catalogo</a></li>
-                    <li><a href="../customer/index.html" class="link_ref">Clientes</a></li>
-                    <li><a href="./index.html" class="link_ref">Ventas</a></li>
+                    <li><a href="../company_info/about_us.jsp" class="link_ref">Sobre Nosotros</a></li>
+                    <li><a href="../company_info/catalogue.jsp" class="link_ref">Catalogo</a></li>
+                    <li><a href="../customer/index.jsp" class="link_ref">Clientes</a></li>
+                    <li><a href="./index.jsp" class="link_ref">Ventas</a></li>
                 </ul>
             </nav>
         </header>

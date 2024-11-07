@@ -1,7 +1,8 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Buscar Venta</title>
+        <title>Formulario Buscar Cliente</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- CSS Styles -->
         <link rel="stylesheet" href="../../css/style_pages/general.css">
@@ -15,14 +16,14 @@
         <!-- NavBar -->
         <header class="navbar">
             <div>
-                <a href="../../index.html"><img src="../../img/logo.webp" alt="logo" class="logo"></a>
+                <a href="../../index.jsp"><img src="../../img/logo.webp" alt="logo" class="logo"></a>
             </div>
             <nav>
                 <ul class="nav_list">
-                    <li><a href="../company_info/about_us.html" class="link_ref">Sobre Nosotros</a></li>
-                    <li><a href="../company_info/catalogue.html" class="link_ref">Catalogo</a></li>
-                    <li><a href="../customer/index.html" class="link_ref">Clientes</a></li>
-                    <li><a href="./index.html" class="link_ref">Ventas</a></li>
+                    <li><a href="../company_info/about_us.jsp" class="link_ref">Sobre Nosotros</a></li>
+                    <li><a href="../company_info/catalogue.jsp" class="link_ref">Catalogo</a></li>
+                    <li><a href="../customer/index.jsp" class="link_ref">Clientes</a></li>
+                    <li><a href="../sales/index.jsp" class="link_ref">Ventas</a></li>
                 </ul>
             </nav>
         </header>
@@ -31,20 +32,20 @@
             <div class="div_form">
                 <!-- Header Form -->
                 <div class="header_forms">
-                    <h2 class="subtitle_page center_text">Buscar Venta</h2>
+                    <h2 class="subtitle_page center_text">Buscar Cliente</h2>
                     <p>Completa el Formulario Correctamente.</p>
                 </div>
                 <!-- Form Search -->
                 <form action="" method="post" class="form_style">
-                    <!-- No. de Venta -->
+                    <!-- RFC Customer -->
                     <div class="form_group">
-                        <label for="no_sale" class="form_label">Numero de Venta</label>
+                        <label for="rfc" class="form_label">RFC (Homoclave)</label>
                         <div class="form_div_input">
-                            <input type="text" name="no_sale" id="no_sale" class="form_input">
+                            <input type="text" name="rfc" id="rfc" class="form_input">
                         </div>
                     </div>
                     <div class="form_btns_send">
-                        <button type="submit" class="form_btn">Registrar</button>
+                        <button type="submit" class="form_btn">Consultar</button>
                         <button type="reset" class="form_btn">Limpiar</button>
                     </div>
                 </form>
