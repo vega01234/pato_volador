@@ -10,8 +10,8 @@ import java.util.List;
 public class CustomerDAO {
     
     // Method to Create Customer in Database
-    public void createCustomer(Customer customer) throws SQLException {
-        String sql = "INSERT INTO customers (rfc_customer, id_user, name_customer, curp_customer, date_birth_customer, nacionality_customer, adress_customer, civil_state_customer, profession_customer, degree_study_customer, certificate_validation) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    public boolean createCustomer(Customer customer) throws SQLException {
+        String sql = "INSERT INTO customers (rfc_customer, id_user, name_customer, curp_customer, date_birth_customer, nacionality_customer, adress_customer, civil_state_customer, profession_customer, degree_study_customer) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             Connection conn = MySQLConnection.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql);
@@ -28,10 +28,11 @@ public class CustomerDAO {
             stmt.setString(8, customer.getCivil_state_customer());
             stmt.setString(9, customer.getProfession_customer());
             stmt.setString(10, customer.getDegree_study_customer());
-            stmt.setBoolean(11, customer.isCertificate_validation());
-            stmt.executeUpdate();
+            int rowsAffected = stmt.executeUpdate();
+            return rowsAffected > 0; // If Rows Affected The Transactions was Successfully
         } catch (SQLException e) {
             e.printStackTrace();
+            return false; // If Error In SQL Statement Return False
         }
     }
     
@@ -56,7 +57,6 @@ public class CustomerDAO {
                 customer.setCivil_state_customer(rs.getString("civil_state_customer"));
                 customer.setProfession_customer(rs.getString("profession_customer"));
                 customer.setDegree_study_customer(rs.getString("degree_study_customer"));
-                customer.setCertificate_validation(rs.getBoolean("certificate_validation"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -97,7 +97,6 @@ public class CustomerDAO {
                 customer.setCivil_state_customer(rs.getString("civil_state_customer"));
                 customer.setProfession_customer(rs.getString("profession_customer"));
                 customer.setDegree_study_customer(rs.getString("degree_study_customer"));
-                customer.setCertificate_validation(rs.getBoolean("certificate_validation"));
                 customers.add(customer);
             }
         } catch (SQLException e) {

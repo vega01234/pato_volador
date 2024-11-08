@@ -14,13 +14,12 @@ public class Customer {
     private String civil_state_customer;
     private String profession_customer;
     private String degree_study_customer;
-    private boolean certificate_validation;
     
     // Constructors 
     public Customer() {   
     }
 
-    public Customer(String rfc_customer, int id_user, String name_customer, String curp_customer, LocalDate date_birth_customer, String nacionality_customer, String adress_customer, String civil_state_customer, String profession_customer, String degree_study_customer, boolean certificate_validation) {
+    public Customer(String rfc_customer, int id_user, String name_customer, String curp_customer, LocalDate date_birth_customer, String nacionality_customer, String adress_customer, String civil_state_customer, String profession_customer, String degree_study_customer) {
         this.rfc_customer = rfc_customer;
         this.id_user = id_user;
         this.name_customer = name_customer;
@@ -31,7 +30,6 @@ public class Customer {
         this.civil_state_customer = civil_state_customer;
         this.profession_customer = profession_customer;
         this.degree_study_customer = degree_study_customer;
-        this.certificate_validation = certificate_validation;
     }
     
     // Getters and Setters
@@ -113,14 +111,6 @@ public class Customer {
 
     public void setDegree_study_customer(String degree_study_customer) {
         this.degree_study_customer = degree_study_customer;
-    }
-
-    public boolean isCertificate_validation() {
-        return certificate_validation;
-    }
-
-    public void setCertificate_validation(boolean certificate_validation) {
-        this.certificate_validation = certificate_validation;
     }
     
 }

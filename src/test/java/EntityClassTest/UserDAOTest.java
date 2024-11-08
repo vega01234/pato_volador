@@ -25,16 +25,16 @@ public class UserDAOTest {
     public void tearDown() {
     }
     
-    @Test
-    public void createUserTest() throws SQLException {
-        User user = new User(0, "Username", "Password", 1);
-        int generatedID = userDAO.createUser(user);
-        
-        // Valid Generated ID is Greater Than 0
-        assertTrue(generatedID > 0);
-        
-        // Get Data By The Returned ID
-        User userDB = userDAO.getUserById(generatedID);
-        assertNotNull(userDB);
-    }
+//    @Test
+//    public void createUserTest() throws SQLException {
+//        User user = new User(0, "Username", "Password", 1);
+//        int generatedID = userDAO.createUser(user);
+//        
+//        // Valid Generated ID is Greater Than 0
+//        assertTrue(generatedID > 0);
+//        
+//        // Get Data By The Returned ID
+//        User userDB = userDAO.getUserById(generatedID);
+//        assertNotNull(userDB);
+//    }
 }

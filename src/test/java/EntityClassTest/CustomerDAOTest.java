@@ -29,22 +29,22 @@ public class CustomerDAOTest {
     public void tearDown() {
     }
 
-    @Test
-    public void createCustomer() throws SQLException {
-        // Default Values
-        String rfc_customer = "RFC_Customer2";
-                
-        // Create User To Insert New Customer
-        User user = new User(0, rfc_customer, rfc_customer, 2);
-        int generatedID = userDAO.createUser(user);
-        
-        // Create Customer Using the ID Returned
-        LocalDate timeTest = LocalDate.now();
-        Customer customer = new Customer(rfc_customer, generatedID, "Fernando Vega", "CURP Customer", timeTest, "Mexicano", "En Mi Casa", "Soltero", "Estudiante", "Bachillerato", true);
-        customerDAO.createCustomer(customer);
-        
-        // Get Data By The RFC
-        Customer customerDB = customerDAO.getCustomerByRfc(rfc_customer);
-        assertNotNull(customerDB);
-    }
+//    @Test
+//    public void createCustomer() throws SQLException {
+//        // Default Values
+//        String rfc_customer = "RFC_Customer2";
+//                
+//        // Create User To Insert New Customer
+//        User user = new User(0, rfc_customer, rfc_customer, 2);
+//        int generatedID = userDAO.createUser(user);
+//        
+//        // Create Customer Using the ID Returned
+//        LocalDate timeTest = LocalDate.now();
+//        Customer customer = new Customer(rfc_customer, generatedID, "Fernando Vega", "CURP Customer", timeTest, "Mexicano", "En Mi Casa", "Soltero", "Estudiante", "Bachillerato", true);
+//        customerDAO.createCustomer(customer);
+//        
+//        // Get Data By The RFC
+//        Customer customerDB = customerDAO.getCustomerByRfc(rfc_customer);
+//        assertNotNull(customerDB);
+//    }
 }

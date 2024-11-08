@@ -36,12 +36,14 @@
                     <p>Completa el Formulario Correctamente.</p>
                 </div>
                 <!-- Form Search -->
-                <form action="" method="post" class="form_style">
+                <form action="/PatoVolador/SvCustomer" method="POST" class="form_style">
+                    <!-- Servlet Action -->
+                    <input type="hidden" name="action" value="search">
                     <!-- RFC Customer -->
                     <div class="form_group">
                         <label for="rfc" class="form_label">RFC (Homoclave)</label>
                         <div class="form_div_input">
-                            <input type="text" name="rfc" id="rfc" class="form_input">
+                            <input type="text" name="rfc" id="rfc" class="form_input" required>
                         </div>
                     </div>
                     <div class="form_btns_send">
