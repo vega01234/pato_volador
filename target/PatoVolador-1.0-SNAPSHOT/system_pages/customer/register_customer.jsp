@@ -36,7 +36,7 @@
                     <p>Completa el Formulario Correctamente.</p>
                 </div>
                 <!-- Form Search -->
-                <form action="" method="post" class="form_style">
+                <form action="/PatoVolador/SvCustomerCreate" method="POST" class="form_style" enctype="multipart/form-data">
                     <!-- Full Name -->
                     <div class="form_group">
                         <label for="full_name" class="form_label">Nombre Completo</label>
@@ -62,7 +62,7 @@
                     <div class="form_group">
                         <label for="birth_date" class="form_label">Fecha de Nacimiento</label>
                         <div class="form_div_input">
-                            <input type="text" name="birth_date" id="birth_date" class="form_input">
+                            <input type="date" name="birth_date" id="birth_date" class="form_input">
                         </div>
                     </div>
                     <!-- Nacionality -->
@@ -100,27 +100,28 @@
                             <input type="text" name="study_degree" id="study_degree" class="form_input">
                         </div>
                     </div>
-                    <!-- Digital Sign -->
+<!--                     Digital Sign 
                     <div class="form_group">
                         <label for="digital_sign" class="form_label">Firma Digital</label>
                         <div class="form_div_input">
                             <input type="text" name="digital_sign" id="digital_sign" class="form_input">
                         </div>
                     </div>
-                    <!-- Public Key -->
+                     Public Key 
                     <div class="form_group">
                         <label for="public_key" class="form_label">Llave Publica</label>
                         <div class="form_div_input">
                             <input type="text" name="public_key" id="public_key" class="form_input">
                         </div>
                     </div>
-                    <!-- PPA -->
+                     PPA 
                     <div class="form_group">
                         <label for="ppa" class="form_label">PPA</label>
                         <div class="form_div_input">
                             <input type="text" name="ppa" id="ppa" class="form_input">
                         </div>
-                    </div>
+                    </div>-->
+                    <!-- Form Buttons -->
                     <div class="form_btns_send">
                         <button type="submit" class="form_btn">Registrar</button>
                         <button type="reset" class="form_btn">Limpiar</button>
