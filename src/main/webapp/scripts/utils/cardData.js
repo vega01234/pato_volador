@@ -9,7 +9,7 @@ const customerCards = [
     {
         imgSrc: "https://images.unsplash.com/photo-1600469984476-c713650f1b1b?q=80&w=2070&auto=format&fit=crop",
         title: "Modificar Cliente",
-        linkHref: "./modify_customer_form.jsp",
+        linkHref: "./modify_customer.jsp",
         linkText: "Actualizar"
     },
     {

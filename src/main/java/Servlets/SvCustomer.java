@@ -71,10 +71,10 @@ public class SvCustomer extends HttpServlet {
                     createCustomer(request, response);
                     break;
                 case "search":
-                    seachCustomer(request, response);
+                    searchCustomer(request, response);
                     break;
                 case "update":
-                    deleteCustomer(request, response);
+                    updateCustomer(request, response);
                     break;
                 default:
                     System.out.println("Aca No Paso Nada :)");
@@ -99,7 +99,7 @@ public class SvCustomer extends HttpServlet {
         String profession_customer = request.getParameter("ocupation");
         String degree_study_customer = request.getParameter("study_degree");
         
-        // Conversion of Varianbles
+        // Conversion of Variables
         LocalDate date_birth_conversion = LocalDate.parse(date_birth_customer);
 
         // Create User Using RFC For Username and Password
@@ -136,9 +136,10 @@ public class SvCustomer extends HttpServlet {
     }
     
     // Search Customer By RFC 
-    private void seachCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
+    private void searchCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
         // Form Fields 
         String rfc_customer = request.getParameter("rfc");
+        String type_form = request.getParameter("type_form");
         
         // Create CustomerDAO to Search Customer with RFC
         Customer customer = new Customer();
@@ -149,13 +150,63 @@ public class SvCustomer extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("customer", customer);
         
-        // Redirect to the Other Servlet
-        response.sendRedirect("system_pages/customer/customer_info.jsp");
+        // Redirect to the Other Servlet 
+        switch (type_form) {
+            case "form_search":
+                response.sendRedirect("system_pages/customer/customer_info.jsp");
+                break;
+            case "form_update":
+                response.sendRedirect("system_pages/customer/modify_customer_data.jsp");
+                break;
+            default:
+                response.sendRedirect("index.jsp");
+        }        
     }
     
     // Delete Customer by RFC
-    private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void updateCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
+        // Form Fields
+        String rfc_customer = request.getParameter("rfc");
+        String id_user = request.getParameter("id_user");
+        String name_customer = request.getParameter("full_name");
+        String curp_customer = request.getParameter("curp");
+        String date_birth_customer = request.getParameter("birth_date");
+        String nacionality_customer = request.getParameter("nacionality");
+        String adress_customer = request.getParameter("adress");
+        String civil_state_customer = request.getParameter("civil_state");
+        String profession_customer = request.getParameter("ocupation");
+        String degree_study_customer = request.getParameter("study_degree");
+        
+        // Conversion of Variables
+        int id_user_conversion = Integer.parseInt(id_user);
+        LocalDate date_birth_conversion = LocalDate.parse(date_birth_customer);
+        
+        // Create New Customer With Form Values 
+        Customer updatedCustomer = new Customer(rfc_customer, id_user_conversion, name_customer, curp_customer, date_birth_conversion, nacionality_customer, adress_customer, civil_state_customer, profession_customer, degree_study_customer);
+        
+        // Create New CustomerDAO to Update Data
+        CustomerDAO customerDAO = new CustomerDAO();
+        HttpSession session = request.getSession();
+        
+        try {
+            // Call Update Method
+            boolean isUpdated = customerDAO.updateCustomer(updatedCustomer);
+            
+            // Return Message
+            if (isUpdated) {
+                session.setAttribute("message", "Actualizacion Exitosa");
+            } else {
+                session.setAttribute("message", "Error en la Actualizacion");
+            }
+            
+            // Redirect to Modify Customer Page
+            response.sendRedirect("system_pages/customer/modify_customer.jsp");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            session.setAttribute("message", "Error al Procesar la Solicitud");
+            response.sendRedirect("system_pages/customer/modify_customer.jsp");
+        }
     }
     
     /**

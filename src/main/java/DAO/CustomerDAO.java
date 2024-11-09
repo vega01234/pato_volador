@@ -64,6 +64,32 @@ public class CustomerDAO {
         return customer;
     }
     
+    //Method to Update Customer in Database
+    public boolean updateCustomer(Customer customer) throws SQLException {
+        String sql = "UPDATE customers SET name_customer = ?, curp_customer = ?, date_birth_customer = ?, nacionality_customer = ?, adress_customer = ?, civil_state_customer = ?, profession_customer = ?, degree_study_customer = ? WHERE rfc_customer = ?";
+        try {
+            Connection conn = MySQLConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            
+            stmt.setString(1, customer.getName_customer());
+            stmt.setString(2, customer.getCurp_customer());
+            stmt.setDate(3, Date.valueOf(customer.getDate_birth_customer()));
+            stmt.setString(4, customer.getNacionality_customer());
+            stmt.setString(5, customer.getAdress_customer());
+            stmt.setString(6, customer.getCivil_state_customer());
+            stmt.setString(7, customer.getProfession_customer());
+            stmt.setString(8, customer.getDegree_study_customer());
+            stmt.setString(9, customer.getRfc_customer());
+            
+            int rowsAffected = stmt.executeUpdate();
+            return rowsAffected > 0;
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
     // Method to Delete Customer by RFC in Database 
     public void deleteCustomer(String rfc) {
         String sql = "DELETE FROM customers WHERE rfc_customer = ?";

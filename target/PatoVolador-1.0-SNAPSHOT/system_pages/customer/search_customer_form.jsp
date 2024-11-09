@@ -39,6 +39,7 @@
                 <form action="/PatoVolador/SvCustomer" method="POST" class="form_style">
                     <!-- Servlet Action -->
                     <input type="hidden" name="action" value="search">
+                    <input type="hidden" name="type_form" value="form_search">
                     <!-- RFC Customer -->
                     <div class="form_group">
                         <label for="rfc" class="form_label">RFC (Homoclave)</label>
