@@ -118,21 +118,21 @@
                     <div class="form_group">
                         <label for="digital_sign" class="form_label">Firma Digital</label>
                         <div class="form_div_input">
-                            <input type="text" name="digital_sign" id="digital_sign" class="form_input">
+                            <input type="file" name="digital_sign" id="digital_sign" class="form_input">
                         </div>
                     </div>
                     <!-- Public Key --> 
                     <div class="form_group">
                         <label for="public_key" class="form_label">Llave Publica</label>
                         <div class="form_div_input">
-                            <input type="text" name="public_key" id="public_key" class="form_input">
+                            <input type="file" name="public_key" id="public_key" class="form_input">
                         </div>
                     </div>
                     <!-- PPA --> 
                     <div class="form_group">
                         <label for="ppa" class="form_label">PPA</label>
                         <div class="form_div_input">
-                            <input type="text" name="ppa" id="ppa" class="form_input">
+                            <input type="file" name="ppa" id="ppa" class="form_input">
                         </div>
                     </div>
                     <!-- Form Buttons -->
