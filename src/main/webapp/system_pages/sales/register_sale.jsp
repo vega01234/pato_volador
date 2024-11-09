@@ -41,14 +41,21 @@
                     <div class="form_group">
                         <label for="no_sale" class="form_label">Venta No.</label>
                         <div class="form_div_input">
-                            <input type="text" name="no_sale" id="no_sale" class="form_input">
+                            <input type="text" name="no_sale" id="no_sale" class="form_input" disabled>
                         </div>
                     </div>
                     <!-- RFC Customer -->
                     <div class="form_group">
-                        <label for="rfc" class="form_label">RFC (Homoclave)</label>
+                        <label for="rfc_customer" class="form_label">RFC (Homoclave) - Cliente</label>
                         <div class="form_div_input">
-                            <input type="text" name="rfc" id="rfc" class="form_input">
+                            <input type="text" name="rfc_customer" id="rfc_customer" class="form_input">
+                        </div>
+                    </div>
+                    <!-- RFC Employee -->
+                    <div class="form_group">
+                        <label for="rfc_employee" class="form_label">RFC (Homoclave) - Empleado</label>
+                        <div class="form_div_input">
+                            <input type="text" name="rfc_employee" id="rfc_employee" class="form_input">
                         </div>
                     </div>
                     <!-- ID Product -->

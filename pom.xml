@@ -6,30 +6,37 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>PatoVolador-1.0-SNAPSHOT</name>
-    
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jakartaee>10.0.0</jakartaee>
     </properties>
-    
+
     <dependencies>
+        <!-- Dependencia de Jakarta EE 10 -->
         <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-api</artifactId>
             <version>${jakartaee}</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- Conector MySQL -->
         <dependency>
             <groupId>MySQL_Connector</groupId>
             <artifactId>MySQL_Connector</artifactId>
             <version>9.1</version>
         </dependency>
+
+        <!-- Dependencia actualizada para File Upload -->
         <dependency>
-            <groupId>servletapi</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.4-20040521</version>
-            <type>jar</type>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.5</version>
         </dependency>
+
+
+        <!-- Dependencias de pruebas unitarias -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -48,14 +55,16 @@
             <version>5.6.0</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- Dependencia de Commons IO -->
         <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>8.0</version>
-            <type>jar</type>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>1.1</version>
         </dependency>
+
     </dependencies>
-    
+
     <build>
         <plugins>
             <plugin>

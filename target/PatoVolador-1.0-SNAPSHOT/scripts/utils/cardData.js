@@ -31,7 +31,7 @@ const salesCards = [
     {
         imgSrc: "https://images.unsplash.com/photo-1593437955835-fc8c51725430?q=80&w=1970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         title: "Buscar Venta",
-        linkHref: "./search_sale_form.jsp",
+        linkHref: "./search_sale.jsp",
         linkText: "Consultar"
     }
 ];
