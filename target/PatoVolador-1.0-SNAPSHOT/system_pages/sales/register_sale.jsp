@@ -1,8 +1,10 @@
 <%@page import="java.util.List"%>
 <%@page import="EntityClass.Employee"%>
 <%@page import="EntityClass.Customer"%>
+<%@page import="EntityClass.Product"%>
 <%@page import="DAO.EmployeeDAO"%>
 <%@page import="DAO.CustomerDAO"%>
+<%@page import="DAO.ProductDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     // Getting All Employees For Select
@@ -12,6 +14,10 @@
    // Getting All Customers For Select
    CustomerDAO customerDAO = new CustomerDAO();
    List<Customer> clientes = customerDAO.getAllCustomer();
+   
+   // Getting All Product For Select
+   ProductDAO productDAO = new ProductDAO();
+   List<Product> productos = productDAO.getAllProducts();
 
 %>
 <!DOCTYPE html>
@@ -63,7 +69,7 @@
                     <div class="form_group">
                         <label for="rfc_customer" class="form_label">RFC (Homoclave) - Cliente</label>
                         <div class="form_div_input">
-                            <select name="rfc_customer" class="form_input" required>
+                            <select name="rfc_customer" id="rfc_customer" class="form_input" required>
                                 <option disabled selected hidden>Seleccione una opcion...</option>
                                 <!-- List of Customers (RFC and Name)-->
                                 <%
@@ -80,7 +86,7 @@
                     <div class="form_group">
                         <label for="rfc_employee" class="form_label">RFC (Homoclave) - Empleado</label>
                         <div class="form_div_input">
-                            <select name="rfc_employee" class="form_input" required>
+                            <select name="rfc_employee" id="rfc_employee" class="form_input" required>
                                 <option disabled selected hidden>Seleccione una opcion...</option>
                                 <!-- List of Employees (RFC and Name)-->
                                 <%
@@ -95,11 +101,18 @@
                     </div>
                     <!-- ID Product (ID Gun and Name) -->
                     <div class="form_group">
-                        <label for="id_product" class="form_label">ID del Producto</label>
+                        <label for="id_product" class="form_label">Nombre del Producto</label>
                         <div class="form_div_input">
-                            <select class="form_input" required>
+                            <select name="id_product" id="id_product" class="form_input" required>
                                 <option disabled selected hidden>Seleccione una opcion...</option>
                                 <!-- Add List of Products (ID and Name)-->
+                                <%
+                                    for (Product pro : productos){
+                                %>
+                                <option value="<%= pro.getId_product() %>"><%= pro.getName_product() %></option>
+                                <%
+                                    }
+                                %>
                             </select>
                         </div>
                     </div>
@@ -114,7 +127,7 @@
                     <div class="form_group">
                         <label for="units" class="form_label">Unidades</label>
                         <div class="form_div_input">
-                            <select class="form_input" required>
+                            <select class="form_input" id="units" required>
                                 <option disabled selected hidden>Seleccione una opcion...</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>

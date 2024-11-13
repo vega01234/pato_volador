@@ -1,3 +1,5 @@
+EntityClass\Product.class
 com\bytebridge\patovolador\JakartaRestConfiguration.class
 Servlets\SvCustomer.class
 com\bytebridge\patovolador\resources\JakartaEE10Resource.class
+DAO\ProductDAO.class
