@@ -36,103 +36,116 @@
                     <p>Completa el Formulario Correctamente.</p>
                 </div>
                 <!-- Form Search -->
-                <form action="" method="post" class="form_style">
+                <form action="" method="POST" class="form_style" enctype="multipart/form-data">
                     <!-- No. de Venta -->
                     <div class="form_group">
                         <label for="no_sale" class="form_label">Venta No.</label>
                         <div class="form_div_input">
-                            <input type="text" name="no_sale" id="no_sale" class="form_input">
+                            <input type="text" name="no_sale" id="no_sale" class="form_input" disabled>
                         </div>
                     </div>
                     <!-- RFC Customer -->
                     <div class="form_group">
-                        <label for="rfc" class="form_label">RFC (Homoclave)</label>
+                        <label for="rfc" class="form_label">RFC (Homoclave) - Cliente</label>
                         <div class="form_div_input">
-                            <input type="text" name="rfc" id="rfc" class="form_input">
+                            <select class="form_input" required>
+                                <option disabled selected hidden>Seleccione una opcion...</option>
+                                <!-- Add List of Customers (RFC and Name)-->
+                            </select>
                         </div>
                     </div>
-                    <!-- ID Product -->
+                    <!-- ID Product (ID Gun and Name) -->
                     <div class="form_group">
                         <label for="id_product" class="form_label">ID del Producto</label>
                         <div class="form_div_input">
-                            <input type="text" name="id_product" id="id_product" class="form_input">
+                            <select class="form_input" required>
+                                <option disabled selected hidden>Seleccione una opcion...</option>
+                                <!-- Add List of Products (ID and Name)-->
+                            </select>
                         </div>
                     </div>
-                    <!-- Description -->
+                    <!-- Description (Gun Name) -->
                     <div class="form_group">
                         <label for="description" class="form_label">Descripcion</label>
                         <div class="form_div_input">
-                            <input type="text" name="description" id="description" class="form_input">
+                            <input type="text" name="description" id="description" class="form_input" disabled>
                         </div>
                     </div>
                     <!-- Units -->
                     <div class="form_group">
                         <label for="units" class="form_label">Unidades</label>
                         <div class="form_div_input">
-                            <input type="text" name="units" id="units" class="form_input">
+                            <select class="form_input" required>
+                                <option disabled selected hidden>Seleccione una opcion...</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
                         </div>
                     </div>
                     <!-- Unit Price -->
                     <div class="form_group">
                         <label for="unit_price" class="form_label">Precio Unitario</label>
                         <div class="form_div_input">
-                            <input type="text" name="unit_price" id="unit_price" class="form_input">
+                            <input type="text" name="unit_price" id="unit_price" class="form_input" disabled>
                         </div>
                     </div>
                     <!-- Import Sale -->
                     <div class="form_group">
                         <label for="import_product" class="form_label">Importe</label>
                         <div class="form_div_input">
-                            <input type="text" name="import_product" id="import_product" class="form_input">
+                            <input type="text" name="import_product" id="import_product" class="form_input" disabled>
                         </div>
                     </div>
                     <!-- IVA Product -->
                     <div class="form_group">
                         <label for="iva_product" class="form_label">IVA (Producto)</label>
                         <div class="form_div_input">
-                            <input type="text" name="iva_product" id="iva_product" class="form_input">
+                            <input type="text" name="iva_product" id="iva_product" class="form_input" disabled>
                         </div>
                     </div>
                     <!-- Subtotal -->
                     <div class="form_group">
                         <label for="subtotal" class="form_label">Subtotal</label>
                         <div class="form_div_input">
-                            <input type="text" name="subtotal" id="subtotal" class="form_input">
+                            <input type="text" name="subtotal" id="subtotal" class="form_input" disabled>
                         </div>
                     </div>
                     <!-- IVA Total -->
                     <div class="form_group">
                         <label for="iva_total" class="form_label">IVA (Total)</label>
                         <div class="form_div_input">
-                            <input type="text" name="iva_total" id="iva_total" class="form_input">
+                            <input type="text" name="iva_total" id="iva_total" class="form_input" disabled>
                         </div>
                     </div>
                     <!-- Total -->
                     <div class="form_group">
                         <label for="total" class="form_label">Total</label>
                         <div class="form_div_input">
-                            <input type="text" name="total" id="total" class="form_input">
+                            <input type="text" name="total" id="total" class="form_input" disabled>
                         </div>
                     </div>
                     <!-- Digital Sign -->
                     <div class="form_group">
                         <label for="digital_sign" class="form_label">Firma Digital</label>
                         <div class="form_div_input">
-                            <input type="text" name="digital_sign" id="digital_sign" class="form_input">
+                            <input type="file" name="digital_sign" id="digital_sign" class="form_input">
                         </div>
                     </div>
                     <!-- Public Key -->
                     <div class="form_group">
                         <label for="public_key" class="form_label">Llave Publica</label>
                         <div class="form_div_input">
-                            <input type="text" name="public_key" id="public_key" class="form_input">
+                            <input type="file" name="public_key" id="public_key" class="form_input">
                         </div>
                     </div>
                     <!-- PPA -->
                     <div class="form_group">
                         <label for="ppa" class="form_label">PPA</label>
                         <div class="form_div_input">
-                            <input type="text" name="ppa" id="ppa" class="form_input">
+                            <input type="file" name="ppa" id="ppa" class="form_input">
                         </div>
                     </div>
                     <div class="form_btns_send">
