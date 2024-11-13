@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Employee {
     
-    private String rfc_customer;
+    private String rfc_employee;
     private int id_user;
     private String name_employee;
     private String position;
@@ -16,7 +16,7 @@ public class Employee {
     }
 
     public Employee(String rfc_customer, int id_user, String name_employee, String position, float salary, LocalDate hire_date) {
-        this.rfc_customer = rfc_customer; // Primary Key in Employee Table
+        this.rfc_employee = rfc_customer; // Primary Key in Employee Table
         this.id_user = id_user; // Foreign Key in Users Table
         this.name_employee = name_employee;
         this.position = position;
@@ -25,12 +25,12 @@ public class Employee {
     }
     
     // Getters and Setters
-    public String getRfc_customer() {
-        return rfc_customer;
+    public String getRfc_employee() {
+        return rfc_employee;
     }
 
-    public void setRfc_customer(String rfc_customer) {
-        this.rfc_customer = rfc_customer;
+    public void setRfc_employee(String rfc_customer) {
+        this.rfc_employee = rfc_customer;
     }
 
     public int getId_user() {

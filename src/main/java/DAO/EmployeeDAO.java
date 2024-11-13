@@ -15,7 +15,7 @@ public class EmployeeDAO {
         try {
             Connection conn = MySQLConnection.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, employee.getRfc_customer());
+            stmt.setString(1, employee.getRfc_employee());
             stmt.setInt(2, employee.getId_user());
             stmt.setString(3, employee.getName_employee());
             stmt.setString(4, employee.getPosition());
@@ -44,7 +44,7 @@ public class EmployeeDAO {
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 employee = new Employee();
-                employee.setRfc_customer(rs.getString("rfc_customer"));
+                employee.setRfc_employee(rs.getString("rfc_customer"));
                 employee.setId_user(rs.getInt("id_user"));
                 employee.setName_employee(rs.getString("name_employee"));
                 employee.setPosition(rs.getString("position"));
@@ -63,12 +63,12 @@ public class EmployeeDAO {
         try {
             Connection conn = MySQLConnection.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, employee.getRfc_customer());
+            stmt.setString(1, employee.getRfc_employee());
             stmt.setString(2, employee.getName_employee());
             stmt.setString(3, employee.getPosition());
             stmt.setFloat(4, employee.getSalary());
             stmt.setDate(5, Date.valueOf(employee.getHire_date()));
-            stmt.setString(6, employee.getRfc_customer());
+            stmt.setString(6, employee.getRfc_employee());
             
             int rowsAffected = stmt.executeUpdate();
             return rowsAffected > 0;
@@ -103,7 +103,7 @@ public class EmployeeDAO {
             ResultSet rs = stmt.executeQuery(sql);
             while(rs.next()) {
                 Employee employee = new Employee();
-                employee.setRfc_customer(rs.getString("rfc_customer"));
+                employee.setRfc_employee(rs.getString("rfc_employee"));
                 employee.setId_user(rs.getInt("id_user"));
                 employee.setName_employee(rs.getString("name_employee"));
                 employee.setPosition(rs.getString("position"));
