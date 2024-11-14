@@ -48,17 +48,17 @@
                     <%
                         } else {
                     %>
-                    <p>Datos de la Compra No: <b><%= sale.getId_sale()%></b>.</p>
+                    <p>Datos de la Compra No: <b><%= sale.getId_sale() %></b>.</p>
                 </div>
                 <!-- Data Customer -->
-                <p><b>ID del Usuario: </b><%= sale.getDate_sale() %>.</p>
-                <p><b>Nombre del Cliente: </b><%= sale.getId_product() %>.</p>
-                <p><b>CURP del Cliente: </b><%= sale.getUnits()%>.</p>
-                <p><b>Fecha de Nacimiento: </b><%= sale.getSubtotal_sale()%>.</p>
-                <p><b>Direccion del Cliente: </b><%= sale.getIva_sale()%>.</p>
-                <p><b>Estado Civil del Cliente: </b><%= sale.getTotal_sale()%>.</p>
-                <p><b>Profesion del Cliente: </b><%= sale.getRfc_employee()%>.</p>
-                <p><b>Grado de Estudios del Cliente: </b><%= sale.getRfc_customer()%>.</p>
+                <p><b>Fecha de la Venta: </b><%= sale.getDate_sale() %>.</p>
+                <p><b>ID del Producto: </b><%= sale.getId_product() %>.</p>
+                <p><b>Unidades Compradas: </b><%= sale.getUnits()%>.</p>
+                <p><b>Subtotal de la Venta: </b><%= sale.getSubtotal_sale()%>.</p>
+                <p><b>IVA Total de la Venta: </b><%= sale.getIva_sale()%>.</p>
+                <p><b>Total de la Venta: </b><%= sale.getTotal_sale()%>.</p>
+                <p><b>RFC del Empleado: </b><%= sale.getRfc_employee()%>.</p>
+                <p><b>RFC del Cliente: </b><%= sale.getRfc_customer()%>.</p>
             </div>
             <%
                 }
