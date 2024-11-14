@@ -57,7 +57,7 @@
                     <p>Completa el Formulario Correctamente.</p>
                 </div>
                 <!-- Form Search -->
-                <form action="" method="POST" class="form_style" enctype="multipart/form-data">
+                <form action="/PatoVolador/SvSales" method="POST" class="form_style" enctype="multipart/form-data">
                     <!-- No. de Venta -->
                     <div class="form_group">
                         <label for="no_sale" class="form_label">Venta No.</label>
