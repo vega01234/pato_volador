@@ -48,6 +48,18 @@
                 </ul>
             </nav>
         </header>
+        <!-- Info Message -->
+        <%
+            String message = (String) session.getAttribute("message");
+            if (message != null) {
+        %>
+        <script>
+            alert("<%= message %>");
+        </script>
+        <%
+            session.removeAttribute("message");
+            }  
+        %>
         <!-- Main Content -->
         <main class="content_page">
             <div class="div_form">
@@ -58,11 +70,13 @@
                 </div>
                 <!-- Form Search -->
                 <form action="/PatoVolador/SvSales" method="POST" class="form_style" enctype="multipart/form-data">
+                    <!-- Servlet Action -->
+                    <input type="hidden" name="action" value="create">
                     <!-- No. de Venta -->
                     <div class="form_group">
                         <label for="no_sale" class="form_label">Venta No.</label>
                         <div class="form_div_input">
-                            <input type="text" name="no_sale" id="no_sale" class="form_input" disabled>
+                            <input type="text" name="no_sale" id="no_sale" class="form_input" value="Se Mostrara al Finalizar la Venta" disabled>
                         </div>
                     </div>
                     <!-- RFC Customer -->
@@ -103,31 +117,24 @@
                     <div class="form_group">
                         <label for="id_product" class="form_label">Nombre del Producto</label>
                         <div class="form_div_input">
-                            <select name="id_product" id="id_product" class="form_input" required>
+                            <select name="id_product" id="id_product" class="form_input" required >
                                 <option disabled selected hidden>Seleccione una opcion...</option>
                                 <!-- Add List of Products (ID and Name)-->
                                 <%
                                     for (Product pro : productos){
                                 %>
-                                <option value="<%= pro.getId_product() %>"><%= pro.getName_product() %></option>
+                                <option value="<%= pro.getId_product() %>" data-precio="<%= pro.getPrice_product()%>" ><%= pro.getName_product() %></option>
                                 <%
                                     }
                                 %>
                             </select>
                         </div>
                     </div>
-                    <!-- Description (Gun Name) -->
-                    <div class="form_group">
-                        <label for="description" class="form_label">Descripcion</label>
-                        <div class="form_div_input">
-                            <input type="text" name="description" id="description" class="form_input" disabled>
-                        </div>
-                    </div>
                     <!-- Units -->
                     <div class="form_group">
                         <label for="units" class="form_label">Unidades</label>
                         <div class="form_div_input">
-                            <select class="form_input" id="units" required>
+                            <select class="form_input" name="units" id="units" required>
                                 <option disabled selected hidden>Seleccione una opcion...</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -146,9 +153,9 @@
                     </div>
                     <!-- Import Sale -->
                     <div class="form_group">
-                        <label for="import_product" class="form_label">Importe</label>
+                        <label for="import_sale" class="form_label">Importe</label>
                         <div class="form_div_input">
-                            <input type="text" name="import_product" id="import_product" class="form_input" disabled>
+                            <input type="text" name="import_sale" id="import_sale" class="form_input" disabled>
                         </div>
                     </div>
                     <!-- IVA Product -->
@@ -211,5 +218,59 @@
         <footer>
             <p>El Pato Volador S.A. de C.V. - Mar de Java CECyT No. 9 Juan de Dios Batiz</p>
         </footer>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const productSelect = document.getElementById('id_product');
+                const quantitySelect = document.getElementById('units');
+                const unitPriceInput = document.getElementById('unit_price');
+                const importProductInput = document.getElementById('import_sale');
+                const ivaProductInput = document.getElementById('iva_product');
+                const subtotalInput = document.getElementById('subtotal');
+                const ivaTotalInput = document.getElementById('iva_total');
+                const totalInput = document.getElementById('total');
+
+                const IVA_PERCENTAGE = 0.16;  // IVA del 16%
+
+                function updateAndCalculate() {
+                    // Eliminar el atributo disabled de los inputs
+                    unitPriceInput.removeAttribute('disabled');
+                    importProductInput.removeAttribute('disabled');
+                    ivaProductInput.removeAttribute('disabled');
+                    subtotalInput.removeAttribute('disabled');
+                    ivaTotalInput.removeAttribute('disabled');
+                    totalInput.removeAttribute('disabled');
+
+                    // Obtener precio unitario del producto seleccionado
+                    const selectedOption = productSelect.options[productSelect.selectedIndex];
+                    const unitPrice = parseFloat(selectedOption.getAttribute('data-precio')) || 0;
+                    unitPriceInput.value = unitPrice.toFixed(2);
+
+                    // Obtener la cantidad seleccionada
+                    const quantity = parseInt(quantitySelect.value) || 0;
+
+                    // Calcular el importe total del producto
+                    const importAmount = unitPrice * quantity;
+                    importProductInput.value = importAmount.toFixed(2);
+
+                    // Calcular el IVA del producto
+                    const productIVA = importAmount * IVA_PERCENTAGE;
+                    ivaProductInput.value = productIVA.toFixed(2);
+
+                    // Calcular el subtotal (importe total sin IVA)
+                    subtotalInput.value = importAmount.toFixed(2);
+
+                    // Calcular el IVA total (por ahora, igual al IVA del producto)
+                    ivaTotalInput.value = productIVA.toFixed(2);
+
+                    // Calcular el total (subtotal + IVA total)
+                    const totalAmount = importAmount + productIVA;
+                    totalInput.value = totalAmount.toFixed(2);
+                }
+
+                // Llamar a la función de cálculo al cambiar la selección del producto o la cantidad
+                productSelect.addEventListener('change', updateAndCalculate);
+                quantitySelect.addEventListener('change', updateAndCalculate);
+            });
+        </script>
     </body>
 </html>

@@ -2,4 +2,7 @@ EntityClass\Product.class
 com\bytebridge\patovolador\JakartaRestConfiguration.class
 Servlets\SvCustomer.class
 com\bytebridge\patovolador\resources\JakartaEE10Resource.class
+EntityClass\Sale.class
 DAO\ProductDAO.class
+DAO\SaleDAO.class
+Servlets\SvSales.class

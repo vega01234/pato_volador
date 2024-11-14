@@ -26,13 +26,18 @@ public class SaleDAO {
             stmt.setFloat(6, sale.getTotal_sale());
             stmt.setString(7, sale.getRfc_employee());
             stmt.setString(8, sale.getRfc_customer());
-            stmt.executeUpdate();
             
-            // Get Generated ID
-            try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
-                if (generatedKeys.next()) {
-                    generatedId = generatedKeys.getInt(1);
+            int rowsAffected = stmt.executeUpdate();
+            
+            if (rowsAffected > 0) {
+                // Get Generated ID
+                try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        generatedId = generatedKeys.getInt(1);
+                    }
                 }
+            } else {
+                generatedId = 0;
             }
             
         } catch (SQLException e) {
