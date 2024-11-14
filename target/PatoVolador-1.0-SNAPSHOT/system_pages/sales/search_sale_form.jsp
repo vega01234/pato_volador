@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     <div class="form_btns_send">
-                        <button type="submit" class="form_btn">Registrar</button>
+                        <button type="submit" class="form_btn">Buscar</button>
                         <button type="reset" class="form_btn">Limpiar</button>
                     </div>
                 </form>
