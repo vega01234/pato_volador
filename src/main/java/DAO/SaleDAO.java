@@ -57,7 +57,7 @@ public class SaleDAO {
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 sale = new Sale();
-                sale.setId_product(rs.getInt("id_sale"));
+                sale.setId_sale(rs.getInt("id_sale"));
                 sale.setDate_sale(rs.getDate("date_sale").toLocalDate());
                 sale.setId_product(rs.getInt("id_product"));
                 sale.setUnits(rs.getInt("units"));
