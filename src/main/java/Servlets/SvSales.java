@@ -120,7 +120,21 @@ public class SvSales extends HttpServlet {
     }
     
     public void searchSale(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+        // Form Fields
+        String id_sale = request.getParameter("no_sale");
+        int no_sale = Integer.parseInt(id_sale);
         
+        // Create SaleDAO to Search Sale with No Sale
+        Sale sale = new Sale();
+        SaleDAO saleDAO = new SaleDAO();
+        sale = saleDAO.getSaleById(no_sale);
+        
+        // Set Attributes and pass to Info Page
+        HttpSession session = request.getSession();
+        session.setAttribute("sale", sale);
+        
+        // Redirect User
+        response.sendRedirect("system_pages/sales/sale_info.jsp");
     }
     
     /**

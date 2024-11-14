@@ -36,7 +36,9 @@
                     <p>Completa el Formulario Correctamente.</p>
                 </div>
                 <!-- Form Search -->
-                <form action="" method="post" class="form_style">
+                <form action="/PatoVolador/SvSales" method="POST" class="form_style">
+                    <!-- Servlet Action -->
+                    <input type="hidden" name="action" value="search">
                     <!-- No. de Venta -->
                     <div class="form_group">
                         <label for="no_sale" class="form_label">Numero de Venta</label>

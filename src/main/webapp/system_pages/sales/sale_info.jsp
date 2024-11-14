@@ -1,4 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="EntityClass.Sale"%>
+<%
+    Sale sale = (Sale) session.getAttribute("sale");
+    if (sale != null) {
+    session.removeAttribute("sale");
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,8 +36,33 @@
         </header>
         <!-- Main Content -->
         <main class="content_page">
-            <h1 class="title_page center_text">Informacion de la Compra</h1>
-            <p class="text center_text">Se debera mostrar la informacion de la Compra :)</p>
+            <!-- Customer Info -->
+            <div class="div_form">
+                <!-- Header Info -->
+                <div class="header_forms">
+                    <h1 class="title_page center_text">Informacion de la Compra</h1>
+                    <%
+                        if (sale == null) {
+                    %>
+                    <p class="center_text"><b>ERROR: </b>No se encontró información del cliente.</p>
+                    <%
+                        } else {
+                    %>
+                    <p>Datos de la Compra No: <b><%= sale.getId_sale()%></b>.</p>
+                </div>
+                <!-- Data Customer -->
+                <p><b>ID del Usuario: </b><%= sale.getDate_sale() %>.</p>
+                <p><b>Nombre del Cliente: </b><%= sale.getId_product() %>.</p>
+                <p><b>CURP del Cliente: </b><%= sale.getUnits()%>.</p>
+                <p><b>Fecha de Nacimiento: </b><%= sale.getSubtotal_sale()%>.</p>
+                <p><b>Direccion del Cliente: </b><%= sale.getIva_sale()%>.</p>
+                <p><b>Estado Civil del Cliente: </b><%= sale.getTotal_sale()%>.</p>
+                <p><b>Profesion del Cliente: </b><%= sale.getRfc_employee()%>.</p>
+                <p><b>Grado de Estudios del Cliente: </b><%= sale.getRfc_customer()%>.</p>
+            </div>
+            <%
+                }
+            %>
         </main>
         <!-- Footer Page -->
         <footer>
