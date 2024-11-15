@@ -1,76 +1,62 @@
 package ValidSignature;
+
 import java.io.*;
 import java.security.*;
 import java.security.spec.*;
 
 public class VerFir {
 
-    String rutaClave;
-    String rutaFirma;
-    String rutaDoc;
-    boolean verificar;
+    public boolean VerFir(String rutaClave, String rutaFirma, String rutaDoc) {
+        if (rutaClave == null || rutaFirma == null || rutaDoc == null) {
+            System.err.println("Las rutas no pueden ser nulas.");
+            return false;
+        }
 
-    public boolean VerFir(String unaRutaClave, String unaRutaFirma, String unaRutaDoc) {
-        rutaClave = unaRutaClave;
-        rutaFirma = unaRutaFirma;
-        rutaDoc = unaRutaDoc;
+        try {
+            PublicKey pubKey = cargarClavePublica(rutaClave);
+            byte[] firma = cargarFirmaDigital(rutaFirma);
+            Signature sig = inicializarVerificacion(pubKey);
+            actualizarFirma(sig, rutaDoc);
 
-        /* Verify a DSA signature */
-
-        if (rutaClave.equals("null")) {
-            System.out.println("Usage: VerSig publickeyfile signaturefile datafile");
-            }
-        else try{
-
-            /* Primero se carga la clave a llave */
-
-            FileInputStream keyfis = new FileInputStream(rutaClave);
-            byte[] encKey = new byte[keyfis.available()];
-            keyfis.read(encKey);
-
-            keyfis.close();
-
-            X509EncodedKeySpec pubKeySpec = new X509EncodedKeySpec(encKey);
-
-            KeyFactory keyFactory = KeyFactory.getInstance("DSA", "SUN");
-            PublicKey pubKey = keyFactory.generatePublic(pubKeySpec);
-
-            /* Segundo se carga la Firma Digital */
-            FileInputStream sigfis = new FileInputStream(rutaFirma);
-            byte[] sigToVerify = new byte[sigfis.available()];
-            sigfis.read(sigToVerify );
-
-            sigfis.close();
-
-            /* create a Signature object and initialize it with the public key */
-            Signature sig = Signature.getInstance("SHA1withDSA", "SUN");
-            sig.initVerify(pubKey);
-
-            /* Tercero se carga el Archivo a verificar*/
-
-            FileInputStream datafis = new FileInputStream(rutaDoc);
-            BufferedInputStream bufin = new BufferedInputStream(datafis);
-
-            byte[] buffer = new byte[1024];
-            int len;
-            while (bufin.available() != 0) {
-                len = bufin.read(buffer);
-                sig.update(buffer, 0, len);
-                };
-
-            bufin.close();
-
-
-            verificar = sig.verify(sigToVerify);
-
-            //System.out.println("signature verifies: " + verificar);
-
+            return sig.verify(firma);
 
         } catch (Exception e) {
-            System.err.println("Caught exception " + e.toString());
-                               };
-    return verificar;
-
+            System.err.println("Error durante la verificación: " + e.getMessage());
+            return false;
+        }
     }
 
+    private PublicKey cargarClavePublica(String rutaClave) throws Exception {
+        FileInputStream keyfis = new FileInputStream(rutaClave);
+        byte[] encKey = keyfis.readAllBytes();
+        keyfis.close();
+
+        X509EncodedKeySpec pubKeySpec = new X509EncodedKeySpec(encKey);
+        KeyFactory keyFactory = KeyFactory.getInstance("DSA", "SUN");
+        return keyFactory.generatePublic(pubKeySpec);
+    }
+
+    private byte[] cargarFirmaDigital(String rutaFirma) throws IOException {
+        FileInputStream sigfis = new FileInputStream(rutaFirma);
+        byte[] sigToVerify = sigfis.readAllBytes();
+        sigfis.close();
+        return sigToVerify;
+    }
+
+    private Signature inicializarVerificacion(PublicKey pubKey) throws NoSuchAlgorithmException, NoSuchProviderException, InvalidKeyException {
+        Signature sig = Signature.getInstance("SHA1withDSA", "SUN");
+        sig.initVerify(pubKey);
+        return sig;
+    }
+
+    private void actualizarFirma(Signature sig, String rutaDoc) throws IOException, SignatureException {
+        FileInputStream datafis = new FileInputStream(rutaDoc);
+        BufferedInputStream bufin = new BufferedInputStream(datafis);
+        byte[] buffer = new byte[1024];
+        int len;
+        while ((len = bufin.read(buffer)) != -1) {
+            sig.update(buffer, 0, len);
+        }
+        bufin.close();
+    }
 }
